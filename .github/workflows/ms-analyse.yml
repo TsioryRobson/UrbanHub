@@ -113,7 +113,7 @@ jobs:
           projectBaseDir: ms-analyse
 
       - name: Snyk security scan
-        uses: snyk/actions/python@master
+        uses: snyk/actions/python@9adf32b1121593767fc3c057af55b55db032dc04
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
