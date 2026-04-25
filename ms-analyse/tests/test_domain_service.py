@@ -1,5 +1,7 @@
 from datetime import datetime, timezone
 
+import pytest
+
 from src.domain.entities import TrafficWindow, VehicleReading
 from src.domain.services import TrafficAnalysisService
 
@@ -38,7 +40,7 @@ def test_analyze_returns_low_congestion_and_exact_quality() -> None:
     notification_payload = result["outputs"][3]["payload"]
 
     assert dashboard_payload["trafficState"] == "low"
-    assert dashboard_payload["averageSpeedKmh"] == 52.5
+    assert dashboard_payload["averageSpeedKmh"] == pytest.approx(52.5)
     assert dashboard_payload["dataQuality"] == "exact"
     assert dashboard_payload["dominantVehicleType"] == "car"
     assert alert_payload["shouldCreateAlert"] is False
@@ -68,7 +70,7 @@ def test_analyze_returns_high_congestion_and_alert() -> None:
     assert alert_payload["alertType"] == "traffic_congestion"
     assert alert_payload["severity"] == "critical"
     assert kpi_payload["congestionLevel"] == "high"
-    assert kpi_payload["heavyVehicleRatio"] == 0.5
+    assert kpi_payload["heavyVehicleRatio"] == pytest.approx(0.5)
 
 
 def test_analyze_handles_empty_vehicle_list() -> None:
@@ -79,11 +81,11 @@ def test_analyze_handles_empty_vehicle_list() -> None:
     dashboard_payload = result["outputs"][0]["payload"]
     notification_payload = result["outputs"][3]["payload"]
 
-    assert dashboard_payload["averageSpeedKmh"] == 0.0
-    assert dashboard_payload["minSpeedKmh"] == 0.0
-    assert dashboard_payload["maxSpeedKmh"] == 0.0
+    assert dashboard_payload["averageSpeedKmh"] == pytest.approx(0.0)
+    assert dashboard_payload["minSpeedKmh"] == pytest.approx(0.0)
+    assert dashboard_payload["maxSpeedKmh"] == pytest.approx(0.0)
     assert dashboard_payload["dominantVehicleType"] == "unknown"
-    assert dashboard_payload["flowRatePerMinute"] == 0.0
+    assert dashboard_payload["flowRatePerMinute"] == pytest.approx(0.0)
     assert dashboard_payload["trafficState"] == "high"
     assert notification_payload["priority"] == "high"
     assert notification_payload["message"].startswith("Circulation dense")

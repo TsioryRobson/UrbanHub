@@ -1,6 +1,8 @@
 import os
 from unittest.mock import Mock, patch
 
+import pytest
+
 os.environ["DATABASE_URL"] = "sqlite:///./test_ms_analyse.db"
 
 from fastapi.testclient import TestClient
@@ -40,7 +42,7 @@ def test_traffic_analysis_returns_dashboard_and_outputs() -> None:
         assert payload["input"]["zoneId"] == "zone-A"
         assert len(payload["outputs"]) == 6
         assert payload["outputs"][0]["destination"] == "dashboard"
-        assert payload["outputs"][0]["payload"]["averageSpeedKmh"] == 35.0
+        assert payload["outputs"][0]["payload"]["averageSpeedKmh"] == pytest.approx(35.0)
         assert payload["outputs"][1]["channel"] == "alert_queue"
         assert payload["outputs"][5]["channel"] == "analysis.traffic.kpi"
 
