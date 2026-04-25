@@ -77,8 +77,10 @@ def test_lifespan_starts_consumer_when_enabled() -> None:
             thread_instance = Mock()
             thread_cls.return_value = thread_instance
 
-            with TestClient(app):
-                pass
+            with TestClient(app) as client:
+                response = client.get("/health")
+
+                assert response.status_code == 200
 
     consumer_cls.assert_called_once()
     thread_cls.assert_called_once_with(target=consumer_instance.start_consuming, daemon=True)
