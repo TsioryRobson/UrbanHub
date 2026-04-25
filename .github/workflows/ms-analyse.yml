@@ -104,6 +104,14 @@ jobs:
           name: ms-analyse-coverage
           path: ms-analyse/coverage.xml
 
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ startsWith(secrets.SONAR_HOST_URL, 'http') && secrets.SONAR_HOST_URL || 'https://sonarcloud.io' }}
+        with:
+          projectBaseDir: ms-analyse
+
   build:
     runs-on: ubuntu-latest
     needs: quality
