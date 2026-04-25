@@ -112,6 +112,20 @@ jobs:
         with:
           projectBaseDir: ms-analyse
 
+      - name: Snyk security scan
+        uses: snyk/actions/python@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --file=ms-analyse/requirements.txt --json-file-output=snyk-report.json
+
+      - name: Upload Snyk report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ms-analyse-snyk-report
+          path: ms-analyse/snyk-report.json
+
   build:
     runs-on: ubuntu-latest
     needs: quality
