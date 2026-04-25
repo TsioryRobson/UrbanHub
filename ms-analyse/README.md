@@ -140,7 +140,7 @@ Ces seuils sont encore heuristiques et pourront etre ajustes selon les besoins m
 Variables d'environnement utiles:
 
 ```bash
-DATABASE_URL=postgresql://user:password@localhost:5433/analysis
+DATABASE_URL=postgresql://user:password@localhost:5436/analysis
 RABBITMQ_HOST=localhost
 RABBITMQ_INPUT_QUEUE=collecte_queue
 ENABLE_RABBITMQ_CONSUMER=true
