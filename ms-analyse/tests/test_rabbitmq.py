@@ -1,10 +1,15 @@
 import json
+from typing import Any
 from unittest.mock import Mock, patch
 
 from pika.exceptions import AMQPConnectionError
 
 from src.adapters.rabbitmq.consumer import RabbitMQConsumer
 from src.adapters.rabbitmq.publisher import RabbitMQPublisher
+
+
+def build_analysis_result(outputs: list[dict[str, Any]]) -> dict[str, Any]:
+    return {"outputs": outputs}
 
 
 def test_consumer_callback_builds_domain_payload() -> None:
@@ -61,8 +66,9 @@ def test_consumer_start_consuming_declares_and_consumes_queue() -> None:
 @patch("src.adapters.rabbitmq.publisher.pika.BlockingConnection", side_effect=AMQPConnectionError("down"))
 def test_publisher_handles_connection_error(_: Mock, capsys) -> None:
     publisher = RabbitMQPublisher()
+    analysis_result = build_analysis_result([])
 
-    publisher.publish({"outputs": []})
+    publisher.publish(analysis_result)
 
     assert "Impossible de publier les sorties d'analyse." in capsys.readouterr().out
 
@@ -73,13 +79,13 @@ def test_publisher_only_publishes_allowed_channels() -> None:
     connection = Mock()
     connection.channel.return_value = channel
 
-    analysis_result = {
-        "outputs": [
+    analysis_result = build_analysis_result(
+        [
             {"channel": "alert_queue", "payload": {"a": 1}},
             {"channel": "analysis.user.notification", "payload": {"b": 2}},
             {"channel": "postgresql.analysis_results", "payload": {"c": 3}},
         ]
-    }
+    )
 
     with patch("src.adapters.rabbitmq.publisher.pika.BlockingConnection", return_value=connection):
         publisher.publish(analysis_result)
