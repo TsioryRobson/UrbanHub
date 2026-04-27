@@ -6,13 +6,13 @@ on:
     paths:
       - "ms6-validateur-capteur/**"
       - "docker-compose.yml"
-      - ".github/workflows/ms6-validateur-capteur.yml"
+      - ".github/workflows/ms6-validateur.yml"
   pull_request:
     branches: [ main ]
     paths:
       - "ms6-validateur-capteur/**"
       - "docker-compose.yml"
-      - ".github/workflows/ms6-validateur-capteur.yml"
+      - ".github/workflows/ms6-validateur.yml"
 
 permissions:
   contents: read
