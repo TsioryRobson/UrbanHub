@@ -120,12 +120,10 @@ services:
     restart: unless-stopped
 
   ms6-validateur-capteur:
-    build:
-      context: ./ms6-validateur-capteur
+    image: ghcr.io/tsioryrobson/urbanhub/ms6-validateur:latest
     container_name: ms6-validateur-capteur
     ports:
-      - "8006:8006"
-    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8006"]
+      - "8000:8000"
     restart: unless-stopped
 
   ms-journalisation:
