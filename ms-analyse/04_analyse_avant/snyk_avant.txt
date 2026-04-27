@@ -1,0 +1,36 @@
+Baseline Snyk avant corrections - ms-analyse
+Date: 2026-04-27
+
+Source de reconstruction:
+- findings Snyk observes plus tot sur le projet ms-analyse
+- baseline reconstituee a partir des alertes visibles avant verrouillage des dependances
+
+Vulnerabilites identifiees avant correction:
+1. fastapi@0.103.2
+   - ReDoS
+   - correctif suggere: upgrade vers fastapi@0.109.1 ou version superieure sure
+
+2. starlette@0.27.0
+   - Allocation of Resources Without Limits or Throttling
+   - ReDoS
+   - correctif suggere: upgrade vers starlette@0.40.0, 0.47.2 ou 0.49.1
+
+3. h11@0.14.0
+   - HTTP Request Smuggling
+   - correctif suggere: upgrade vers h11@0.16.0
+
+4. anyio@3.7.1
+   - Race Condition
+   - correctif suggere: upgrade vers anyio@4.4.0 ou version sure compatible
+
+5. zipp@3.15.0
+   - Infinite loop
+   - correctif suggere: upgrade vers zipp@3.19.1 ou version superieure
+
+Actions de correction appliquees ensuite dans ms-analyse:
+- verrouillage explicite des versions Python
+- mise a niveau des dependances transitives sensibles
+- rebuild Docker et verification du healthcheck
+
+Note:
+Ce fichier sert de baseline "avant" reconstruite. Le scan Snyk local authentifie n'a pas pu etre rejoue ici faute de token local disponible dans l'environnement de travail.
