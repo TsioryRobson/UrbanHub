@@ -59,6 +59,8 @@ jobs:
           pytest tests \
             --junitxml=report_tests.xml \
             --cov=src \
+            --cov-config=.coveragerc \
+            --cov-branch \
             --cov-report=term-missing \
             --cov-report=xml:coverage.xml \
             --cov-fail-under=80
@@ -72,7 +74,7 @@ jobs:
             ms6-validateur-capteur/report_tests.xml
 
       - name: SonarCloud scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
