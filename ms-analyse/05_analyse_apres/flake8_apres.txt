@@ -1,0 +1,50 @@
+src/__init__.py:1:1: W391 blank line at end of file
+src/adapters/__init__.py:1:1: W391 blank line at end of file
+src/adapters/api/__init__.py:1:1: W391 blank line at end of file
+src/adapters/api/schemas.py:36:1: W391 blank line at end of file
+src/adapters/dashboard/__init__.py:1:1: W391 blank line at end of file
+src/adapters/database/__init__.py:1:1: W391 blank line at end of file
+src/adapters/database/repository.py:32:80: E501 line too long (83 > 79 characters)
+src/adapters/rabbitmq/__init__.py:1:1: W391 blank line at end of file
+src/adapters/rabbitmq/consumer.py:8:80: E501 line too long (84 > 79 characters)
+src/application/__init__.py:1:1: W391 blank line at end of file
+src/application/use_cases/__init__.py:1:1: W391 blank line at end of file
+src/domain/__init__.py:1:1: W391 blank line at end of file
+src/domain/entities.py:19:1: W391 blank line at end of file
+src/domain/services.py:8:80: E501 line too long (85 > 79 characters)
+src/domain/services.py:11:80: E501 line too long (83 > 79 characters)
+src/domain/services.py:13:80: E501 line too long (87 > 79 characters)
+src/domain/services.py:21:80: E501 line too long (99 > 79 characters)
+src/domain/services.py:22:80: E501 line too long (96 > 79 characters)
+src/domain/services.py:24:80: E501 line too long (91 > 79 characters)
+src/domain/services.py:27:80: E501 line too long (93 > 79 characters)
+src/domain/services.py:58:80: E501 line too long (96 > 79 characters)
+src/domain/services.py:73:80: E501 line too long (83 > 79 characters)
+src/domain/services.py:74:80: E501 line too long (87 > 79 characters)
+src/domain/services.py:84:80: E501 line too long (99 > 79 characters)
+src/domain/services.py:147:80: E501 line too long (97 > 79 characters)
+src/domain/services.py:152:80: E501 line too long (104 > 79 characters)
+src/domain/services.py:158:80: E501 line too long (95 > 79 characters)
+src/domain/services.py:169:80: E501 line too long (80 > 79 characters)
+src/domain/services.py:179:80: E501 line too long (80 > 79 characters)
+src/main.py:14:80: E501 line too long (84 > 79 characters)
+src/main.py:20:80: E501 line too long (91 > 79 characters)
+src/ports/__init__.py:1:1: W391 blank line at end of file
+src/ports/analysis_port.py:9:1: W391 blank line at end of file
+tests/test_health.py:8:1: E402 module level import not at top of file
+tests/test_health.py:10:1: E402 module level import not at top of file
+tests/test_health.py:12:1: E302 expected 2 blank lines, found 1
+tests/test_health.py:45:80: E501 line too long (89 > 79 characters)
+tests/test_health.py:74:80: E501 line too long (104 > 79 characters)
+tests/test_health.py:86:80: E501 line too long (93 > 79 characters)
+tests/test_rabbitmq.py:43:80: E501 line too long (105 > 79 characters)
+tests/test_rabbitmq.py:44:80: E501 line too long (84 > 79 characters)
+tests/test_rabbitmq.py:58:80: E501 line too long (98 > 79 characters)
+tests/test_rabbitmq.py:66:80: E501 line too long (106 > 79 characters)
+tests/test_rabbitmq.py:73:80: E501 line too long (84 > 79 characters)
+tests/test_rabbitmq.py:90:80: E501 line too long (99 > 79 characters)
+tests/test_repository.py:21:80: E501 line too long (97 > 79 characters)
+tests/test_repository.py:22:80: E501 line too long (99 > 79 characters)
+tests/test_repository.py:49:80: E501 line too long (86 > 79 characters)
+tests/test_schemas_and_use_case.py:5:80: E501 line too long (84 > 79 characters)
+tests/test_schemas_and_use_case.py:31:80: E501 line too long (91 > 79 characters)
