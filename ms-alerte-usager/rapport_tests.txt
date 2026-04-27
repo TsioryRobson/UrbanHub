@@ -1,0 +1,31 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0
+rootdir: D:\Projet\urbanhub-ms-alerte\ms-alerte-usager
+configfile: pytest.ini
+plugins: cov-7.1.0, mock-3.15.1
+collected 8 items
+
+test\unit\test_process_alert_usecase.py ..                               [ 25%]
+test\unit\test_rabbitmq_consumer.py ...                                  [ 62%]
+test\unit\test_repository.py ...                                         [100%]
+
+- generated xml file: D:\Projet\urbanhub-ms-alerte\ms-alerte-usager\rapport_tests.xml -
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.13-final-0 _______________
+
+Name                                       Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------
+src\__init__.py                                0      0   100%
+src\adapters\database\models.py               53      0   100%
+src\adapters\database\repository.py           16      0   100%
+src\adapters\rabbitmq\consumer.py             26      0   100%
+src\application\process_alert_usecase.py      15      0   100%
+src\domain\entities.py                         9      0   100%
+src\main.py                                   23     23     0%   2-31
+src\ports\notification_port.py                 6      1    83%   11
+src\ports\repository_port.py                  12      3    75%   11, 15, 19
+------------------------------------------------------------------------
+TOTAL                                        160     27    83%
+Coverage HTML written to dir coverage_html
+Coverage XML written to file coverage.xml
+============================== 8 passed in 1.21s ==============================
