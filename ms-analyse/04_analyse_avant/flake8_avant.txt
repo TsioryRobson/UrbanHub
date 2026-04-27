@@ -1,0 +1,22 @@
+Baseline flake8 avant corrections dediees - ms-analyse
+Date: 2026-04-27
+
+Etat capture localement avant toute campagne de nettoyage specifique flake8:
+- 50 ecarts detectes
+- repartition principale:
+  - E501: 34
+  - W391: 13
+  - E402: 2
+  - E302: 1
+
+Interpretation:
+- la majorite des ecarts provient du style de lignes trop longues
+- plusieurs fichiers __init__.py contiennent une ligne vide finale
+- le fichier de tests HTTP contient aussi des imports hors tete de module
+
+Reference brute:
+- voir 05_analyse_apres/flake8_apres.txt pour la sortie detaillee capturee localement
+
+Note:
+Le lot de travail courant a surtout porte sur la fiabilite, la securite, la CI/CD et les dependances.
+Une passe de remediation flake8 dediee reste a faire si l'objectif est d'obtenir un rapport "apres" totalement propre.

@@ -1,0 +1,27 @@
+Etat Snyk apres corrections - ms-analyse
+Date: 2026-04-27
+
+Corrections appliquees sur les dependances:
+- fastapi==0.136.1
+- starlette==1.0.0
+- anyio==4.13.0
+- h11==0.16.0
+- zipp>=3.19.1
+- uvicorn[standard]==0.46.0
+
+Verification technique realisee:
+- mise a jour du venv local avec les versions verrouillees
+- rebuild Docker du service ms-analyse
+- tests applicatifs relances: 16 passed
+- endpoint de sante verifie: GET /health -> {"status":"ok"}
+
+Limite de la verification locale:
+- le scan Snyk authentifie n'a pas pu etre rejoue ici car aucun SNYK_TOKEN local n'etait expose dans cet environnement
+- la presence de npm a bien ete verifiee, mais pas d'authentification Snyk locale exploitable
+
+Commande a executer dans un environnement authentifie pour produire le rapport final:
+snyk test --file=requirements.txt --json-file-output=snyk-report.json
+
+Conclusion:
+- les dependances signalees avant correction ont ete remplacees par un ensemble verrouille et compatible
+- la validation finale Snyk doit etre confirmee par la pipeline GitHub Actions ou par une execution locale avec token
