@@ -1,0 +1,6 @@
+Rapport Flake8 apres corrections - ms6-validateur-capteur
+Date: 2026-04-27
+Commande: python -m flake8 src tests
+
+src/__init__.py:1:1: W391 blank line at end of file
+tests/test_routes.py:16:80: E501 line too long (83 > 79 characters)
