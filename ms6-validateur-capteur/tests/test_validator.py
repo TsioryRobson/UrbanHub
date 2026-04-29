@@ -1,3 +1,5 @@
+import pytest
+
 from src.validator import classify_sensor_value
 
 
@@ -7,7 +9,7 @@ def test_classifies_normal_value():
     assert result["valid"] is True
     assert result["level"] == "normal"
     assert result["sensor"] == "c02"
-    assert result["threshold"] == 800.0
+    assert result["threshold"] == pytest.approx(800.0)
     assert result["timestamp"]
 
 
@@ -16,7 +18,7 @@ def test_classifies_moderate_value():
 
     assert result["valid"] is True
     assert result["level"] == "moderate"
-    assert result["threshold"] == 35.0
+    assert result["threshold"] == pytest.approx(35.0)
 
 
 def test_classifies_critical_value():
@@ -24,7 +26,7 @@ def test_classifies_critical_value():
 
     assert result["valid"] is False
     assert result["level"] == "critical"
-    assert result["threshold"] == 85.0
+    assert result["threshold"] == pytest.approx(85.0)
 
 
 def test_supports_extra_humidity_sensor():
@@ -32,7 +34,7 @@ def test_supports_extra_humidity_sensor():
 
     assert result["valid"] is True
     assert result["level"] == "moderate"
-    assert result["threshold"] == 60.0
+    assert result["threshold"] == pytest.approx(60.0)
 
 
 def test_rejects_unknown_sensor():

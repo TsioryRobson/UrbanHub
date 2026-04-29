@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0
+rootdir: /home/tsiory/projets/UrbanHub/ms6-validateur-capteur
+configfile: pytest.ini
+plugins: anyio-4.13.0, cov-7.1.0
+collected 8 items
+
+tests/test_routes.py ...                                                 [ 37%]
+tests/test_validator.py .....                                            [100%]
+
+- generated xml file: /home/tsiory/projets/UrbanHub/ms6-validateur-capteur/03_rapport_tests/rapport_tests.xml -
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.3-final-0 ________________
+
+Name               Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------
+src/__init__.py        0      0      0      0   100%
+src/config.py          7      0      0      0   100%
+src/main.py            4      0      0      0   100%
+src/routes.py         14      1      0      0    93%   17
+src/schemas.py        12      0      0      0   100%
+src/validator.py      30      7     10      1    75%   112, 125-129, 138
+--------------------------------------------------------------
+TOTAL                 67      8     10      1    86%
+Coverage XML written to file 03_rapport_tests/coverage.xml
+Required test coverage of 80% reached. Total coverage: 85.71%
+============================== 8 passed in 0.98s ===============================

@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
   security-events: write
 
 env:
@@ -103,6 +102,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: quality-reports
     if: github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout monorepo

@@ -1,0 +1,29 @@
+Rapport Snyk apres corrections - ms6-validateur-capteur
+Date: 2026-04-27
+Commande: snyk test --file=requirements.txt
+
+
+Testing /home/tsiory/projets/UrbanHub/ms6-validateur-capteur...
+
+Tested 11 dependencies for known issues, found 2 issues, 2 vulnerable paths.
+
+
+Issues to fix by upgrading dependencies:
+
+  Pin starlette@0.41.3 to starlette@0.49.1 to fix
+  ✗ Allocation of Resources Without Limits or Throttling [Medium Severity][https://security.snyk.io/vuln/SNYK-PYTHON-STARLETTE-10874054] in starlette@0.41.3
+    introduced by fastapi@0.115.6 > starlette@0.41.3
+  ✗ Regular Expression Denial of Service (ReDoS) [High Severity][https://security.snyk.io/vuln/SNYK-PYTHON-STARLETTE-13733964] in starlette@0.41.3
+    introduced by fastapi@0.115.6 > starlette@0.41.3
+
+
+
+Organization:      tsioryrobson
+Package manager:   pip
+Target file:       requirements.txt
+Project name:      ms6-validateur-capteur
+Open source:       no
+Project path:      /home/tsiory/projets/UrbanHub/ms6-validateur-capteur
+Licenses:          enabled
+
+

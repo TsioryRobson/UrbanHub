@@ -13,7 +13,10 @@ def test_validate_endpoint_returns_classification():
 
 
 def test_validate_endpoint_rejects_unknown_sensor():
-    response = client.post("/validate", json={"sensor": "unknown", "value": 500.0})
+    response = client.post(
+        "/validate",
+        json={"sensor": "unknown", "value": 500.0},
+    )
 
     assert response.status_code == 200
     assert response.json()["valid"] is False
